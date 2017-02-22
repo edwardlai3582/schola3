@@ -14,20 +14,35 @@ class StudentController {
         });
     }
 
-    //get by id
+    //get all
     get(req, res){
         const collection = req.db.collection('students');
         
-        collection.findOne({ 'sid': req.query.id}, (err, docs)=> { //'_id': new ObjectID(req.query.id)
+        collection.find({}).toArray((err, docs)=> {
             if(err){
                 res.send("error");    
             }
             else{
-                console.log(`Found student: ${docs.firstName}`);
+                console.log(`Found student`);
                 req.db.close();
-                res.send(docs);    
+                res.send(docs);        
             }
         });
+    }
+    
+    //put
+    put(req, res){
+        //console.log(req.body);
+        const collection = req.db.collection('students');
+        
+        collection.insertOne(req.body, (err, result)=>{
+            if(err){
+                res.send("error");    
+            }
+            else{
+                res.send(result);
+            }
+        });        
     }
 }
 

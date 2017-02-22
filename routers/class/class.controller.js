@@ -42,7 +42,7 @@ class ClassController {
             }}
         ], (err, docs) => {
             if (err) {
-
+                res.send("error");
             }
             else {
                 req.db.close();

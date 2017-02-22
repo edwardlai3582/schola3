@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register Form</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="form.css"/>
+    </head>
+    <boby>
+        <div class="form-container">
+            <form class="form" id="register-form">
+                <fieldset>
+                    <legend>Register Form </legend>
+                    <div id="register-form-fields"></div>
+                    <div class="command-bar">
+                        <button type="reset" name="button">Cancel</button>
+                        <button type="submit" name="button">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="display" >
+            <div id="mlabWrapper">
+                <h6>students in mlab</h6>
+                <code id="students-in-db"></code>
+            </div>
+            <div>
+                <h6>form result</h6>
+                <code id="register-form-result"></code>
+            </div>
+        </div>
+        <script src="form-options.js"></script>
+        <script src="form.js"></script>
+    </boby>
+</html>

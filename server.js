@@ -1,3 +1,4 @@
+const express = require('express');
 const app = require('express')();
 
 /*
@@ -5,8 +6,12 @@ const app = require('express')();
 */
 const studentRouter = require('./routers/student');
 const classRouter = require('./routers/class');
-app.use('/students?', studentRouter);
-app.use('/classes?', classRouter);
+app.use('/', express.static(__dirname + '/public'));
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/form.html');
+});
+app.use('/students', studentRouter);
+app.use('/classes', classRouter);
 
 /*
     option2: dynamic require as middleware
@@ -36,6 +41,9 @@ app.use('/classes?', classRouter);
         app.route('/students?', (req, res)=>{});
     };
 */
+
+
+
 
 app.listen(3000, () => {
     console.log('server start');
